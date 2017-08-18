@@ -1,0 +1,15 @@
+<h2>My Persons</h2>
+<ul class="heroes list-group">
+  <li class="list-group-item" *ngFor="let hero of heroes" [class.selected]="hero === heroes"
+      (click)="onSelect(hero); changeShowDialog()"><!--showDialog = !showDialog-->
+    <span class="badge">{{hero.id}}</span>{{hero.name}}
+  </li>
+</ul>
+<ul>
+  <li class="text" *ngFor="let item of items | async">
+    {{item.$value}}
+  </li>
+</ul>
+<app-hero-detail [hero]="selectedHero" [showdial]="showDialog" ></app-hero-detail>
+
+
