@@ -31,23 +31,25 @@ export class AppComponent {
 })
 
 export class AuthComponent {
-  logged = false;
   email: string;
   password: string;
+  messagea: string;
 
   constructor(
-    public authService: AuthService) {}
+    public authService: AuthService,
+    ) {this.messagea = authService.message; }
 
   singUp() {
     this.authService.signup(this.email, this.password);
     this.email = this.password = '';
+    console.log(this.authService.message);
   }
 
 
   loggIn() {
     this.authService.login(this.email, this.password);
-    // this.logged = true;
     this.email = this.password = '';
+    this.messagea = this.authService.message;
   }
 
   logOut() {
