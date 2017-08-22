@@ -1,3 +1,4 @@
+<app-auth></app-auth>
 <div class="grid grid-pad">
   <div class="col-10-12">
     <div class="content">
@@ -10,22 +11,17 @@
         <span class="marquee">{{clock | async | date: 'y/M/d, H:m:ss'}}</span>
       </div>
     </div>
-    <div *ngIf="!logged" class="col-1-1">
-      <div class="content">
-        <button class="btn btn-primary" (click)="loggIn()">Logg in</button>
-      </div>
-    </div>
   </div>
-
-
-
 </div>
 
+
 <nav>
-<button class="btn btn-sm" routerLink="heroes">Heroes</button>
-<button class="btn btn-sm" routerLink="dashboard">Dashboard</button>
+
+<button *ngIf="authService.user | async" style="color: #2d2d2d;" class="btn btn-sm" routerLink="personas">Personas</button>
+<button style="color: #2d2d2d;" class="btn btn-sm" routerLink="dashboard">Dashboard</button>
 <router-outlet></router-outlet>
 </nav>
+
 <hr>
-<sup>{{footnote}}</sup>
+<sup style="clear: both; position: relative; z-index: 10; height: 3em;margin-top: -3em">{{footnote}}</sup>
 

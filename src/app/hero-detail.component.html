@@ -1,6 +1,6 @@
 <div *ngIf="hero">
 
-  <app-dialog [visible]="showdial">
+  <app-dialog  style="color: #2d2d2d" [visible]="showdial">
     <h2>{{hero.name}} details!</h2>
     <table class="table table-bordered">
       <tbody>
@@ -23,4 +23,4 @@
   </app-dialog>
 
 </div>
-<button class="btn btn-lg" (click)="goBack()">Back</button>
+<button style="color: #2d2d2d" class="btn btn-lg" (click)="goBack()">Back</button>

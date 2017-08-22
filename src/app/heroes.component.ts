@@ -3,8 +3,9 @@ import { HeroService } from './hero.service';
 import { OnInit } from '@angular/core';
 import { Hero } from './hero';
 import { AngularFireDatabase, AngularFireDatabaseProvider, FirebaseListObservable } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
+import { AngularFireAuth } from 'angularfire2/auth';
+
 import * as firebase from 'firebase/app';
 
 
@@ -23,7 +24,8 @@ export class HeroesComponent implements OnInit {
 
   constructor(
     private heroService: HeroService,
-    af: AngularFireDatabase,
+    public af: AngularFireDatabase,
+    public afAuth: AngularFireAuth,
   ) {
     this.items = af.list('/items');
   }
@@ -50,5 +52,7 @@ export class HeroesComponent implements OnInit {
       power: hero.power,
     });
   }
+
+
 }
 

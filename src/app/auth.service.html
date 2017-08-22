@@ -1,1 +1,20 @@
+<div class="grid grid-pad">
+  <h1 class="col-1-2" *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.email }}!</h1>
+  <div class="col-1-2" *ngIf="!(authService.user | async)">
+    <input style="color: #2d2d2d" type="text" [(ngModel)]="email" placeholder="email">
+    <input style="color: #2d2d2d" type="password" [(ngModel)]="password" placeholder="password">
+
+    <button class="btn btn-primary" (click)="singUp()" [disabled]="!email || !password">
+      Signup
+    </button>
+
+    <button class="btn btn-primary" (click)="loggIn()" [disabled]="!email || !password">
+      Login
+    </button>
+  </div>
+  <div class="col-2-2" style="float: right; margin-right: 10px; text-align: center; margin-top: 1em; vertical-align: middle" >
+    <button class="btn btn-primary" (click)="logOut()" *ngIf="authService.user | async">Logout</button>
+  </div>
+</div>
+
 
