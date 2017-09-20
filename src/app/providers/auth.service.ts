@@ -1,10 +1,10 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable } from '@angular/core';
 
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
-
+import {AngularFireAuth} from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
+import * as firebase from 'firebase/app';
+
 
 @Injectable()
 export class AuthService {
@@ -12,7 +12,7 @@ export class AuthService {
   message = '';
   errMessage: Subject<string> = new Subject<string>();
 
-  constructor(private firebaseAuth: AngularFireAuth) {
+  constructor(public firebaseAuth: AngularFireAuth) {
     this.user = firebaseAuth.authState;
   }
 
@@ -50,7 +50,14 @@ export class AuthService {
   logout() {
     this.firebaseAuth
       .auth
-      .signOut();
+      .signOut().then(function () {
+      // logout successfull
+    }).catch(function (error) {
+      // an error happened
+    });
   }
 
+  loginWithGoogle() {
+    this.firebaseAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
 }

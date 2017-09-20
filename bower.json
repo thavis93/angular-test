@@ -1,0 +1,26 @@
+{
+  "name": "test1",
+  "description": "Test1 Project",
+  "main": "index.html",
+  "authors": [
+    "Bartlomiej Pasek"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "mdi": "1.1.70",
+    "bootstrap-social": "^5.1.1",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "bootstrap-social": "^5.1.1"
+  }
+}

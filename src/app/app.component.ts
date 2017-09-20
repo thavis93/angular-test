@@ -18,11 +18,8 @@ export class AppComponent {
     });
 
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
   ) {}
-  // loginWithEmail(email: string, password: string): firebase.Promise<any> {
-  //   return this.afAuth.auth.signInWithEmailAndPassword(email, password);
-  // }
 }
 
 @Component({
@@ -54,6 +51,10 @@ export class AuthComponent {
 
   logOut() {
     this.authService.logout();
+  }
+
+  loginWithGoogle() {
+    this.authService.loginWithGoogle();
   }
 }
 

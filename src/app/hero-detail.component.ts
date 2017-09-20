@@ -47,6 +47,10 @@ export class HeroDetailComponent implements OnInit {
   writeUserData(): void {
     this.heroesComponent.writeUserData(this.hero);
   }
+
+  readUserData(): void {
+    this.heroesComponent.readUserData(this.hero);
+  }
 }
 
 @Component({

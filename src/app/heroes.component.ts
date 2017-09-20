@@ -25,7 +25,6 @@ export class HeroesComponent implements OnInit {
   constructor(
     private heroService: HeroService,
     public af: AngularFireDatabase,
-    public afAuth: AngularFireAuth,
   ) {
     this.items = af.list('/items');
   }
@@ -54,5 +53,8 @@ export class HeroesComponent implements OnInit {
   }
 
 
+  readUserData(hero: Hero) {
+    //
+  }
 }
 
